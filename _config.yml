@@ -1,0 +1,60 @@
+title: Fer Python
+author: Fernando Vásquez Choquehuanca
+email: vasquefe@gmail.com
+description: > # this means to ignore newlines until "show_exerpts:"
+  Fernando Vásquez Choquehuanca is a electronics engineer and indie game developer currently based in Perú. He occasionally blogs about Python programming, RPG game development and data science.
+show_excerpts: false # set to true to show excerpts on the homepage
+
+permalink: /:title
+paginate: 10
+paginate_path: "/page/:num/"
+
+tag_permalink_style: pretty
+tag_page_layout: tag_page
+tag_page_dir: tag
+
+url: "https://ferpython.com"
+
+# jekyll-dash date format
+# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
+dash:
+  # the way how dates should be displayed
+  date_format: "%b %-d, %Y"
+
+  # (optional) discqus comment configuration
+  # disqus:
+  #  shortname: bitbrain-github-io
+
+  # generate social links in footer
+  # supported colors: green, red, orange, blue, cyan, pink, teal, yellow, indigo, purple
+  social_links:
+    - url: https://twitter.com/vasquefe
+      icon: twitter-square
+      color: cyan
+    - url: https://github.com/vasquefe
+      icon: github-square
+      color: purple
+
+  # wether the author box should be displayed
+  show_author: true
+
+  # the animation speed of the scroll-in effect
+  animation_speed: 50
+
+  # wether to enable Right-to-Left support or not
+  rtl: false
+
+  # Replaces the default avatar provider (gravatar)
+  avatar_source: github
+  github_username: vasquefe
+  #avatar_source: local
+  #avatar_path: /assets/avatar.png
+
+plugins:
+ - jekyll-feed
+ - jekyll-seo-tag
+ - jekyll-paginate
+ - liquid-md5
+ - jekyll/tagging
+ - jekyll-sitemap
+ - jekyll-tagging-related_posts
