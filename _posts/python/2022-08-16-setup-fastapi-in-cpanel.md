@@ -23,7 +23,7 @@ Run `uvicorn` in background.
 	export domain='example.com'
 	```
 
-1. Create include files
+1. Create include files [^1]
 
 	```bash
 	sudo mkdir -p /etc/apache2/conf.d/userdata/std/2_4/$user/$domain/
@@ -32,7 +32,7 @@ Run `uvicorn` in background.
 	sudo touch /etc/apache2/conf.d/userdata/std/2_4/$user/$domain/include.conf
 	```
 
-1. Add proxy directives in `/etc/apache2/conf.d/userdata/ssl/2_4/$user/$domain/include.conf`:
+1. Add proxy directives[^2] in `/etc/apache2/conf.d/userdata/ssl/2_4/$user/$domain/include.conf`:
 
 	```bash
 	ProxyPass /.well-known !
@@ -40,22 +40,22 @@ Run `uvicorn` in background.
 	ProxyPassReverse / http://127.0.0.1:8000/
 	```
 
-1. Add proxy SSL directives in `/etc/apache2/conf.d/userdata/std/2_4/$user/$domain/include.conf`:
+1. Add proxy SSL directives[^3] in `/etc/apache2/conf.d/userdata/std/2_4/$user/$domain/include.conf`:
 
- 	```bash
- 	SSLEngine on
- 	SSLCertificateFile /var/cpanel/ssl/apache_tls/$domain/combined
- 	SSLUseStapling off
- 	SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown
- 	ProxyPass / http://127.0.0.1:8000/
- 	ProxyPassReverse / http://127.0.0.1:8000/
- 	Redirect permanent /$domain /$domain/
- 	```
+	```bash
+	SSLEngine on
+	SSLCertificateFile /var/cpanel/ssl/apache_tls/$domain/combined
+	SSLUseStapling off
+	SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown
+	ProxyPass / http://127.0.0.1:8000/
+	ProxyPassReverse / http://127.0.0.1:8000/
+	Redirect permanent /$domain /$domain/
+	```
 
 1. Rebuild Apache conf: `sudo /usr/local/cpanel/scripts/rebuildhttpdconf`
 
 1. Restart Apache: `sudo /usr/local/cpanel/scripts/restartsrv_httpd`
 
-[^1]: https://support.cpanel.net/hc/en-us/articles/1500002918142-How-can-I-setup-a-ws-proxy-for-traccar-
-[^2]: https://support.cpanel.net/hc/en-us/articles/1500011220222-How-do-you-create-an-Apache-Reverse-Proxy-with-mod-proxy-
-[^3]: https://support.cpanel.net/hc/en-us/articles/360052925073
+[^1]: [How to use Apache Includes to add Configuration Directives to a specific domain's VirtualHost](https://support.cpanel.net/hc/en-us/articles/360052925073)
+[^2]: [How can I setup a ws proxy for traccar?](https://support.cpanel.net/hc/en-us/articles/1500002918142-How-can-I-setup-a-ws-proxy-for-traccar-)
+[^3]: [How do you create an Apache Reverse Proxy with mod_proxy?](https://support.cpanel.net/hc/en-us/articles/1500011220222-How-do-you-create-an-Apache-Reverse-Proxy-with-mod-proxy-)
