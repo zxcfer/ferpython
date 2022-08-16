@@ -56,6 +56,8 @@ Run `uvicorn` in background.
 
 1. Restart Apache: `sudo /usr/local/cpanel/scripts/restartsrv_httpd`
 
+## References 
+
 [^1]: [How to use Apache Includes to add Configuration Directives to a specific domain's VirtualHost](https://support.cpanel.net/hc/en-us/articles/360052925073)
 [^2]: [How can I setup a ws proxy for traccar?](https://support.cpanel.net/hc/en-us/articles/1500002918142-How-can-I-setup-a-ws-proxy-for-traccar-)
 [^3]: [How do you create an Apache Reverse Proxy with mod_proxy?](https://support.cpanel.net/hc/en-us/articles/1500011220222-How-do-you-create-an-Apache-Reverse-Proxy-with-mod-proxy-)
