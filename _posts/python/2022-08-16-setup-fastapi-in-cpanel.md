@@ -38,6 +38,9 @@ Run `uvicorn` in background.
 	ProxyPass /.well-known !
 	ProxyPass / http://127.0.0.1:8000/
 	ProxyPassReverse / http://127.0.0.1:8000/
+	<IfModule mod_headers.c>
+		Header set Access-Control-Allow-Origin '*'
+	</IfModule>
 	```
 
 1. Add proxy SSL directives[^3] in `/etc/apache2/conf.d/userdata/std/2_4/$user/$domain/include.conf`:
@@ -50,6 +53,9 @@ Run `uvicorn` in background.
 	ProxyPass / http://127.0.0.1:8000/
 	ProxyPassReverse / http://127.0.0.1:8000/
 	Redirect permanent /$domain /$domain/
+	<IfModule mod_headers.c>
+		Header set Access-Control-Allow-Origin '*'
+	</IfModule>
 	```
 
 1. Rebuild Apache conf: `sudo /usr/local/cpanel/scripts/rebuildhttpdconf`
