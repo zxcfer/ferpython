@@ -26,21 +26,17 @@ export domain='example.com'
 1. Create include files [^1]
 
 ```bash
-sudo mkdir -p /etc/apache2/conf.d/userdata/std/2_4/$user/$domain/
-sudo touch /etc/apache2/conf.d/userdata/std/2_4/$user/$domain/include.conf
 sudo mkdir -p /etc/apache2/conf.d/userdata/ssl/2_4/$user/$domain/
 sudo touch /etc/apache2/conf.d/userdata/ssl/2_4/$user/$domain/include.conf
+sudo mkdir -p /etc/apache2/conf.d/userdata/std/2_4/$user/$domain/
+sudo touch /etc/apache2/conf.d/userdata/std/2_4/$user/$domain/include.conf
 ```
 
 1. Add proxy directives[^2] in `/etc/apache2/conf.d/userdata/std/2_4/$user/$domain/include.conf`:
 
 ```bash
 ProxyPass /.well-known !
-ProxyPass / http://127.0.0.1:8000/
-ProxyPassReverse / http://127.0.0.1:8000/
-<IfModule mod_headers.c>
-	Header set Access-Control-Allow-Origin '*'
-</IfModule>
+Redirect permanent / https://$domain/
 ```
 
 1. Add proxy SSL directives[^3] in `/etc/apache2/conf.d/userdata/ssl/2_4/$user/$domain/include.conf`:
@@ -58,9 +54,17 @@ Redirect permanent /$domain /$domain/
 </IfModule>
 ```
 
-1. Rebuild Apache conf: `sudo /usr/local/cpanel/scripts/rebuildhttpdconf`
+1. Rebuild Apache conf: 
 
-1. Restart Apache: `sudo /usr/local/cpanel/scripts/restartsrv_httpd`
+```bash
+sudo /usr/local/cpanel/scripts/rebuildhttpdconf
+```
+
+1. Restart Apache: 
+
+```bash
+sudo /usr/local/cpanel/scripts/restartsrv_httpd
+```
 
 ## References 
 
