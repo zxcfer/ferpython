@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "NLTK sentences tokenizer"
-tags: ["nltk", "tokenize"]
+tags: ["nlp", "tokenize"]
 ---
 
 ```py

@@ -18,45 +18,45 @@ Run `uvicorn` in background.
 
 1. Set cPanel user in `$user` environment variable and the same for the domain:
 
-	```bash
-	export user='cpanel_user'
-	export domain='example.com'
-	```
+```bash
+export user='cpanel_user'
+export domain='example.com'
+```
 
 1. Create include files [^1]
 
-	```bash
-	sudo mkdir -p /etc/apache2/conf.d/userdata/std/2_4/$user/$domain/
-	sudo mkdir -p /etc/apache2/conf.d/userdata/ssl/2_4/$user/$domain/
-	sudo touch /etc/apache2/conf.d/userdata/ssl/2_4/$user/$domain/include.conf
-	sudo touch /etc/apache2/conf.d/userdata/std/2_4/$user/$domain/include.conf
-	```
+```bash
+sudo mkdir -p /etc/apache2/conf.d/userdata/std/2_4/$user/$domain/
+sudo touch /etc/apache2/conf.d/userdata/std/2_4/$user/$domain/include.conf
+sudo mkdir -p /etc/apache2/conf.d/userdata/ssl/2_4/$user/$domain/
+sudo touch /etc/apache2/conf.d/userdata/ssl/2_4/$user/$domain/include.conf
+```
 
-1. Add proxy directives[^2] in `/etc/apache2/conf.d/userdata/ssl/2_4/$user/$domain/include.conf`:
+1. Add proxy directives[^2] in `/etc/apache2/conf.d/userdata/std/2_4/$user/$domain/include.conf`:
 
-	```bash
-	ProxyPass /.well-known !
-	ProxyPass / http://127.0.0.1:8000/
-	ProxyPassReverse / http://127.0.0.1:8000/
-	<IfModule mod_headers.c>
-		Header set Access-Control-Allow-Origin '*'
-	</IfModule>
-	```
+```bash
+ProxyPass /.well-known !
+ProxyPass / http://127.0.0.1:8000/
+ProxyPassReverse / http://127.0.0.1:8000/
+<IfModule mod_headers.c>
+	Header set Access-Control-Allow-Origin '*'
+</IfModule>
+```
 
-1. Add proxy SSL directives[^3] in `/etc/apache2/conf.d/userdata/std/2_4/$user/$domain/include.conf`:
+1. Add proxy SSL directives[^3] in `/etc/apache2/conf.d/userdata/ssl/2_4/$user/$domain/include.conf`:
 
-	```bash
-	SSLEngine on
-	SSLCertificateFile /var/cpanel/ssl/apache_tls/$domain/combined
-	SSLUseStapling off
-	SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown
-	ProxyPass / http://127.0.0.1:8000/
-	ProxyPassReverse / http://127.0.0.1:8000/
-	Redirect permanent /$domain /$domain/
-	<IfModule mod_headers.c>
-		Header set Access-Control-Allow-Origin '*'
-	</IfModule>
-	```
+```bash
+SSLEngine on
+SSLCertificateFile /var/cpanel/ssl/apache_tls/$domain/combined
+SSLUseStapling off
+SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown
+ProxyPass / http://127.0.0.1:8000/
+ProxyPassReverse / http://127.0.0.1:8000/
+Redirect permanent /$domain /$domain/
+<IfModule mod_headers.c>
+	Header set Access-Control-Allow-Origin '*'
+</IfModule>
+```
 
 1. Rebuild Apache conf: `sudo /usr/local/cpanel/scripts/rebuildhttpdconf`
 

@@ -4,7 +4,7 @@ title: "Video Command Line Edition with FFMPEG"
 tags: ["ffmpeg", "CLI"]
 ---
 
-* Download [.exe](http://ffmpeg.zeranoe.com/builds/)
+* Download [executable](http://ffmpeg.zeranoe.com/builds/) and put in your PATH.
 
 ## Exctract MP3
 

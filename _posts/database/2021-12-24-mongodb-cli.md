@@ -4,7 +4,7 @@ title: "MongoDB CLI Cheat Sheet"
 tags: ["database", "mongodb", "CLI"]
 ---
 
-- Installing mongodb
+- Installing MongoDB (Debian based distro)
 
 ```bash
 sudo apt-get install -y mongodb
