@@ -6,17 +6,17 @@ tags: ["python", "fastapi"]
 
 ## Bridge API
 
-At this point I am assuming you alredy have a FastAPI application ready to run. Let's say the name is server.py with the name app:
+At this point I am assuming you alredy have a FastAPI application ready to run. Let's say the name is `server.py` with the name `app`:
 
 Run `uvicorn` in background.
 
    ```bash
-   nohup uvicorn vision:app >fastapi.out 2>fastapi.err &
+   nohup uvicorn server:app >fastapi.out 2>fastapi.err &
    ```
  
 ## cPanel API setup
 
-1. Set cPanel user in `$user` environment variable and the same for the domain:
+1. Set cPanel user in `$user` environment variable and domain in `$domain`:
 
 ```bash
 export user='cpanel_user'
@@ -36,19 +36,19 @@ sudo touch /etc/apache2/conf.d/userdata/std/2_4/$user/$domain/include.conf
 
 ```bash
 ProxyPass /.well-known !
-Redirect permanent / https://$domain/
+Redirect permanent / https://example.com/
 ```
 
 1. Add proxy SSL directives[^3] in `/etc/apache2/conf.d/userdata/ssl/2_4/$user/$domain/include.conf`:
 
 ```bash
 SSLEngine on
-SSLCertificateFile /var/cpanel/ssl/apache_tls/$domain/combined
+SSLCertificateFile /var/cpanel/ssl/apache_tls/example.com/combined
 SSLUseStapling off
 SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown
 ProxyPass / http://127.0.0.1:8000/
 ProxyPassReverse / http://127.0.0.1:8000/
-Redirect permanent /$domain /$domain/
+Redirect permanent /example.com /example.com/
 <IfModule mod_headers.c>
 	Header set Access-Control-Allow-Origin '*'
 </IfModule>
