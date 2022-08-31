@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "File Uploading from CLI"
-tags: ["curl"]
+tags: ["curl", "cli"]
 ---
 
 # Mastering cURL

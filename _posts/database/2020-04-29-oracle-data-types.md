@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Oracle Cheat Sheet"
-tags: ["database", "Oracle", "SQL"]
+tags: ["database", "sql"]
 ---
 
 # Oracle data types

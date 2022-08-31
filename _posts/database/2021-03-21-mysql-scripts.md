@@ -2,7 +2,7 @@
 layout: post
 title: "MySQL Scripts"
 description: "Database full dump and table sizes summary."
-tags: ["database", "SQL", "MySQL"]
+tags: ["database", "sql", "mysql"]
 ---
 
 ## All databases dump

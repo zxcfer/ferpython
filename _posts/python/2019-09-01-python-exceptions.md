@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python Exceptions Cheatsheet"
-tags: ["python"]
+tags: ["python", "exceptions"]
 ---
 
 ## Basic Example

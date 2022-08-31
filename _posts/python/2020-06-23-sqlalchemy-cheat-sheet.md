@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "SQLAlchemy"
-tags: ["python", "ORM"]
+tags: ["python", "orm"]
 ---
 ---
 layout: post

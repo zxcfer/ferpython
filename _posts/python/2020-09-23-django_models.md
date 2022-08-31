@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Django Models"
-tags: ["django", "ORM"]
+tags: ["django", "orm"]
 ---
 
 ## Defining a Database Model

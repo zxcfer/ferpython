@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "PostgreSQL CLI Cheat Sheet"
-tags: ["database", "Postgres", "SQL", "CLI"]
+tags: ["database", "postgres", "sql", "cli"]
 ---
 
 # PostgreSQL CLI Cheat Sheet

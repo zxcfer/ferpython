@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Command Line Image Edition"
-tags: ["image edition", "CLI"]
+tags: ["image edition", "cli"]
 ---
 
 ## Image magick

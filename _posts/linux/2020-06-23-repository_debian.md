@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Setup Debian Repository"
-tags: [""]
+tags: ["python", "linux"]
 ---
 
 Install python properties

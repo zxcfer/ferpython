@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Creating a Date Dimension or Calendar Table"
-tags: ["database", "SQL", "MySQL"]
+tags: ["database", "sql", "mysql"]
 ---
 
 # Creating a date dimension or calendar table

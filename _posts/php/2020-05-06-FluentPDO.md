@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "PHP Fluent PDO"
-tags: ["php", "PDO", "FluentPDO", "ORM"]
+tags: ["php", "pdo", "orm"]
 ---
 
 # FluentPDO Cheat Sheet

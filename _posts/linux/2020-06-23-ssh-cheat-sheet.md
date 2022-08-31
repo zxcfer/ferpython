@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "SSH Cheat Sheet"
-tags: ["ssh"]
+tags: ["ssh", "cli"]
 ---
 
 - Install ssh server

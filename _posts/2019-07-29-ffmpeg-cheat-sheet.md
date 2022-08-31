@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Video Command Line Edition with FFMPEG"
-tags: ["ffmpeg", "CLI"]
+tags: ["ffmpeg", "cli"]
 ---
 
 * Download [executable](http://ffmpeg.zeranoe.com/builds/) and put in your PATH.

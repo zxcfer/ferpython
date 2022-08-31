@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "MongoDB CLI Cheat Sheet"
-tags: ["database", "mongodb", "CLI"]
+tags: ["database", "mongodb", "cli", "nosql"]
 ---
 
 - Installing MongoDB (Debian based distro)
