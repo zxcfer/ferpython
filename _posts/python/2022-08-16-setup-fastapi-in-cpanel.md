@@ -8,7 +8,7 @@ tags: ["python", "fastapi"]
 
 At this point I am assuming you alredy have a FastAPI application ready to run. Let's say the server python file is `server.py` with the name `app`:
 
-Run `uvicorn` in background.
+Run `uvicorn` in background with our app:
 
    ```bash
    nohup uvicorn server:app >fastapi.out 2>fastapi.err &
@@ -32,23 +32,23 @@ sudo mkdir -p /etc/apache2/conf.d/userdata/std/2_4/$user/$domain/
 sudo touch /etc/apache2/conf.d/userdata/std/2_4/$user/$domain/include.conf
 ```
 
-3. Add proxy directives[^2] in `/etc/apache2/conf.d/userdata/std/2_4/$user/$domain/include.conf`:
+3. Add proxy directives[^2] in `/etc/apache2/conf.d/userdata/std/2_4/$user/$domain/include.conf`, replace `__SERVER__` with the domain, in this case `example.com`:
 
 ```bash
 ProxyPass /.well-known !
-Redirect permanent / https://example.com/
+Redirect permanent / https://__SERVER__/
 ```
 
 4. Add proxy SSL directives[^3] in `/etc/apache2/conf.d/userdata/ssl/2_4/$user/$domain/include.conf`:
 
 ```bash
 SSLEngine on
-SSLCertificateFile /var/cpanel/ssl/apache_tls/example.com/combined
+SSLCertificateFile /var/cpanel/ssl/apache_tls/__SERVER__/combined
 SSLUseStapling off
 SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown
 ProxyPass / http://127.0.0.1:8000/
 ProxyPassReverse / http://127.0.0.1:8000/
-Redirect permanent /example.com /example.com/
+Redirect permanent /__SERVER__ /__SERVER__/
 <IfModule mod_headers.c>
 	Header set Access-Control-Allow-Origin '*'
 </IfModule>
