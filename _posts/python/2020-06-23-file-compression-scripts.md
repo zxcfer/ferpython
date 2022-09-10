@@ -5,8 +5,7 @@ description: "Script examples to compress files using Python"
 tags: ["compression", "python"]
 ---
 
-
-## Using tar and zip
+## Using `tar` and `zip`
 
 ```py
 import tarfile
@@ -23,15 +22,15 @@ for name in ["file1", "file2", "file3"]:
 tar.close()
 ```
 
-## Using tar and Bzip
+## Using `tar` and `bzip2`
 
-Bzip2 is also available, and you can try the following example:
+Bzip2 is also available in Python, you can try the following example:
 
 ```py
 import bz2
 
 compressionLevel = 9
-source_file = '/foo/bar.txt' #this file can be in a different format, like .csv or others...
+source_file = '/foo/bar.txt'
 destination_file = '/foo/bar.bz2'
 
 tarbz2contents = bz2.compress(open(source_file, 'rb').read(), compressionLevel)
