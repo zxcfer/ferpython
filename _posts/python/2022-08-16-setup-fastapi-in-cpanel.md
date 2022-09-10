@@ -6,7 +6,7 @@ tags: ["python", "fastapi"]
 
 ## Bridge API
 
-At this point I am assuming you alredy have a FastAPI application ready to run. Let's say the name is `server.py` with the name `app`:
+At this point I am assuming you alredy have a FastAPI application ready to run. Let's say the server python file is `server.py` with the name `app`:
 
 Run `uvicorn` in background.
 
