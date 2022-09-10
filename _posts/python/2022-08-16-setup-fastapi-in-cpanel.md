@@ -23,7 +23,7 @@ export user='cpanel_user'
 export domain='example.com'
 ```
 
-1. Create include files [^1]
+2. Create include files [^1]
 
 ```bash
 sudo mkdir -p /etc/apache2/conf.d/userdata/ssl/2_4/$user/$domain/
@@ -32,14 +32,14 @@ sudo mkdir -p /etc/apache2/conf.d/userdata/std/2_4/$user/$domain/
 sudo touch /etc/apache2/conf.d/userdata/std/2_4/$user/$domain/include.conf
 ```
 
-1. Add proxy directives[^2] in `/etc/apache2/conf.d/userdata/std/2_4/$user/$domain/include.conf`:
+3. Add proxy directives[^2] in `/etc/apache2/conf.d/userdata/std/2_4/$user/$domain/include.conf`:
 
 ```bash
 ProxyPass /.well-known !
 Redirect permanent / https://example.com/
 ```
 
-1. Add proxy SSL directives[^3] in `/etc/apache2/conf.d/userdata/ssl/2_4/$user/$domain/include.conf`:
+4. Add proxy SSL directives[^3] in `/etc/apache2/conf.d/userdata/ssl/2_4/$user/$domain/include.conf`:
 
 ```bash
 SSLEngine on
@@ -54,13 +54,13 @@ Redirect permanent /example.com /example.com/
 </IfModule>
 ```
 
-1. Rebuild Apache conf: 
+5. Rebuild Apache conf: 
 
 ```bash
 sudo /usr/local/cpanel/scripts/rebuildhttpdconf
 ```
 
-1. Restart Apache: 
+6. Restart Apache: 
 
 ```bash
 sudo /usr/local/cpanel/scripts/restartsrv_httpd

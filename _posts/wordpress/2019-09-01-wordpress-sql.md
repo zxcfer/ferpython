@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Wordpress Cheat Sheet"
-tags: ["Wordpress", "cheat sheet"]
+tags: ["wordpress"]
 ---
 
 ## Domain change upadte
