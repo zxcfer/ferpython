@@ -16,14 +16,14 @@ Run `uvicorn` in background with our app:
  
 ## cPanel API setup
 
-1. Set cPanel user in `$user` environment variable and domain in `$domain`:
+1/ Set cPanel user in `$user` environment variable and domain in `$domain`:
 
 ```bash
 export user='cpanel_user'
 export domain='example.com'
 ```
 
-2. Create include files [^1]
+2/ Create include files [^1]
 
 ```bash
 sudo mkdir -p /etc/apache2/conf.d/userdata/ssl/2_4/$user/$domain/
@@ -32,14 +32,14 @@ sudo mkdir -p /etc/apache2/conf.d/userdata/std/2_4/$user/$domain/
 sudo touch /etc/apache2/conf.d/userdata/std/2_4/$user/$domain/include.conf
 ```
 
-3. Add proxy directives[^2] in `/etc/apache2/conf.d/userdata/std/2_4/$user/$domain/include.conf`, replace `__SERVER__` with the domain, in this case `example.com`:
+3/ Add proxy directives[^2] in `/etc/apache2/conf.d/userdata/std/2_4/$user/$domain/include.conf`, replace `__SERVER__` with the domain, in this case `example.com`:
 
 ```bash
 ProxyPass /.well-known !
 Redirect permanent / https://__SERVER__/
 ```
 
-4. Add proxy SSL directives[^3] in `/etc/apache2/conf.d/userdata/ssl/2_4/$user/$domain/include.conf`:
+4/ Add proxy SSL directives[^3] in `/etc/apache2/conf.d/userdata/ssl/2_4/$user/$domain/include.conf`:
 
 ```bash
 SSLEngine on
@@ -54,13 +54,13 @@ Redirect permanent /__SERVER__ /__SERVER__/
 </IfModule>
 ```
 
-5. Rebuild Apache conf: 
+5/ Rebuild Apache conf: 
 
 ```bash
 sudo /usr/local/cpanel/scripts/rebuildhttpdconf
 ```
 
-6. Restart Apache: 
+6/ Restart Apache: 
 
 ```bash
 sudo /usr/local/cpanel/scripts/restartsrv_httpd

@@ -29,3 +29,9 @@ email_from = settings.EMAIL_HOST_USER
 recipient_list = ['receiver@gmail.com',]
 send_mail( subject, message, email_from, recipient_list )
 ```
+
+- Alternatively, for testing, you can just print email instead of sending. You just need to change parameter `EMAIL_BACKEND`:
+
+```py
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+```
