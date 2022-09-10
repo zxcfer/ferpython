@@ -8,7 +8,7 @@ tags: ["python"]
 
 ## 1. Code Structure and Files
 
-We can use [Sample project](https://stash.mtvi.com/projects/DBA/repos/dba-python-template/browse) in stash to get the basic structure for our Python projects.
+We can use [Sample project]() in stash to get the basic structure for our Python projects.
 
 Basic project structure:
 
@@ -170,17 +170,6 @@ pip-wheel-metadata/
 
 ## 9. Deploy and publish
 
-For deploying a package we use file ViaCBSfile, for example:
-
-```hcl
-vmnPipeline('python-pypi') {
-    preInstallCommand 'preinstall'
-    pythonVersion '3.6.13' 
-}
-```
-
-That will push module into nexus.
-
 On the other hand, if we additionally we need to publish a web application and deploy on a k8s, we use the same file, but instead of publish in PyPi we deploy to Helm:
 
 ```hcl
@@ -226,8 +215,6 @@ except ZeroDivisionError:
 except Exception:
     logger.error("Unknown error", exc_info=True)
 ```
-
-For specific cases, we can use `dba_notification_lib` module to notify exceptions directly to our notifications channels. For example:
 
 ```py
 try:
