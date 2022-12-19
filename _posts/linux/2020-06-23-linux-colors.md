@@ -4,6 +4,13 @@ title: "Linux CLI colors"
 tags: ["linux", "color"]
 ---
 
+## Echo
+
+echo -e "\e[1;31m This is red text \e[0m"
+
+## Code Colors
+
+```
 0   = default colour
 1   = bold
 4   = underlined
@@ -38,3 +45,4 @@ tags: ["linux", "color"]
 104 = light blue background
 105 = light purple background
 106 = turquoise background
+```
