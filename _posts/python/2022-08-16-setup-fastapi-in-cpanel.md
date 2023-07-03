@@ -2,7 +2,7 @@
 layout: post
 title:  "Setup FastAPI in cPanel managed server"
 tags: ["python", "fastapi"]
-featured: "https://i.imgur.com/5IQwZos.png"
+featured: "https://i.imgur.com/BeDZCg3.jpg"
 ---
 
 ## Bridge API
