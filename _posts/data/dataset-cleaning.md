@@ -22,10 +22,10 @@ hero.clean(pandas.Series)
 fillna(s) Replace not assigned values with empty spaces.
 lowercase(s) Lowercase all text.
 remove_digits() Remove all blocks of digits.
-remove_punctuation() Remove all string.punctuation (!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~).
-remove_diacritics() Remove all accents from strings.
-remove_stopwords() Remove all stop words.
-remove_whitespace() Remove all white space between words.
+remove_punctuation()   # Remove all string.punctuation (!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~).
+remove_diacritics()    # Remove all accents from strings.
+remove_stopwords()     # Remove all stop words.
+remove_whitespace()    # Remove all white space between words.
 ```
 
 

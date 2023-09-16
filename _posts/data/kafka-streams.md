@@ -4,7 +4,6 @@ title: "Kafka Streams Tutorial"
 tags: ["kafka", "streaming"]
 ---
 
-
 * Create a maven project
 
 ```bash

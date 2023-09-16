@@ -42,7 +42,6 @@ zookeeper.connect=127.1.1.4:2181
 listener=PLAINTEXT://127.17.0.5:9082
 ```
 
-
 3. Execute commands
 
 ```bash
