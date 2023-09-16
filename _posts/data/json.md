@@ -74,8 +74,6 @@ object FlattenNestedStruct extends App {
     "currAddCity","prevAddState","prevAddCity")
     .show(false)
 
-
-
   def flattenStructSchema(schema: StructType, prefix: String = null) : Array[Column] = {
     schema.fields.flatMap(f => {
       val columnName = if (prefix == null) f.name else (prefix + "." + f.name)
