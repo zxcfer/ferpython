@@ -1,10 +1,52 @@
 ---
 layout: post
-title: "PHP Fluent PDO"
+title: "PHP PDO and Fluent PDO usage"
 tags: ["php", "pdo", "orm"]
 ---
 
-# FluentPDO Cheat Sheet
+## PHP PDO
+
+PHP PDO (PHP Data Objects) is a PHP extension that provides a consistent and object-oriented approach to access different databases, such as MySQL, PostgreSQL, SQLite, and more. It offers a set of functions and classes that allow developers to interact with databases efficiently and securely.
+
+You can create a connection with:
+
+```php
+try {
+    $dsn = "mysql:host=localhost;dbname=$dbname";
+    $dbh = new PDO($dsn, $user, $password);
+} catch (PDOException $e){
+    echo $e->getMessage();
+}
+```
+
+In postgreSQL, sequences are created when you are using the SERIAL data type.
+
+```sql
+CREATE TABLE ingredients (
+  id         SERIAL PRIMARY KEY,
+  name       varchar(255) NOT NULL,
+);
+```
+
+So the sequence name will be ingredients_id_seq
+
+```php
+$db->lastInsertId('ingredients_id_seq');
+
+// count rows
+$nRows = $pdo->query('select count(*) from blah')->fetchColumn(0);
+echo $nRows;
+```
+
+It is also possible to confiure different error modes:
+
+```php
+$dbh->setAttribute(PDO::ATTRR_ERRMODE, PDO::ERRMODE_SILENT);
+$dbh->setAttribute(PDO::ATTRR_ERRMODE, PDO::ERRMODE_WARNING);
+$dbh->setAttribute(PDO::ATTRR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+```
+
+# FluentPDO
 
 - Queries
 
