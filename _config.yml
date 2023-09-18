@@ -1,8 +1,8 @@
 title: Fer Python
 author: Fernando Vásquez Choquehuanca
-email: vasquefe@gmail.com
+email: zxcfer@proton.me
 description: > # this means to ignore newlines until "show_exerpts:"
-  Fernando Vásquez Choquehuanca is a electronics engineer and indie game developer currently based in Perú. He occasionally blogs about Python programming, RPG game development and data science.
+  Fernando Vásquez is a electronics engineer and indie game developer currently based in Perú. He occasionally blogs about programming.
 show_excerpts: false # set to true to show excerpts on the homepage
 
 permalink: /:title
@@ -31,7 +31,7 @@ dash:
     - url: https://twitter.com/vasquefe
       icon: twitter-square
       color: cyan
-    - url: https://github.com/vasquefe
+    - url: https://github.com/zxcfer
       icon: github-square
       color: purple
 
@@ -46,7 +46,7 @@ dash:
 
   # Replaces the default avatar provider (gravatar)
   avatar_source: github
-  github_username: vasquefe
+  github_username: zxcfer
   #avatar_source: local
   #avatar_path: /assets/avatar.png
 
