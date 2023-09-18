@@ -18,13 +18,13 @@ sudo /etc/init.d/ssh restart
 ssh $__USER__@$__HOST__ command
 ```
 
-#check network
+- check network
 
 ```bash
 netstat -tulpn
 ```
 
-- Not close SSH
+- Do not close SSH
 
 ```bash
 sudo vim /etc/ssh/sshd_config
@@ -40,7 +40,7 @@ ClientAliveCountMax 100
 scp -p -r $__USER__@$__HOST__:$__SRC__ $__TARGET__
 ```
 
-- Use key file
+- Use a specific key file
 
 ```bash
 scp -i ~/.ssh/superkey -p 87 $__USER__@$__HOST__:$__SRC__ $__TARGET__
@@ -66,16 +66,18 @@ chmod 600 ~/.ssh/authorized_keys
 
 ## Problem: SSH is slow!
 
-- 1. Add this to `/etc/ssh/sshd_config`
+1. Add the following line to `/etc/ssh/sshd_config`:
 
 ```bash
 UseDNS no
 ```
 
-- 2. Already slow? add to `/etc/ssh/ssh_config or ~/.ssh/config`
+2. Still slow? add to `/etc/ssh/ssh_config or ~/.ssh/config`:
 
 ```bash
 GSSAPIAuthentication no
 ```
 
-[^1]: SSH Tunneling Made Easy https://www.revsys.com/writings/quicktips/ssh-tunnel.html.
+## References
+
+[^1]: [SSH Tunneling Made Easy](https://www.revsys.com/writings/quicktips/ssh-tunnel.html).
