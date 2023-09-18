@@ -5,6 +5,8 @@ layout: default
   {% include author.html %}
 {% endunless %}
 {{ content }}
+
+    {% if page == 1 %}
 <h2>Welcome to my Website!</h2>
 <div class="post-links">
   <div class="post-link-wrapper">
@@ -17,10 +19,11 @@ layout: default
     <a href="https://github.com/zxcfer" class="post-link">Projects</a>
   </div>
 </div>
+    {% else %}
 
 {% assign posts_count = paginator.posts | size %}
 {% if posts_count > 0 %}
-  <h2>recent articles</h2>
+  <h2>Recent Articles</h2>
   <div class="post-links">
     {% for post in paginator.posts %}
       <div class="post-link-wrapper">
