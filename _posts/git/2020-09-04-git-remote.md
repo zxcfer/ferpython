@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "git remote"
-tags: ["git", "remote"]
+tags: ["git"]
 ---
 
 # Git Remote Basics and Merge Remote
