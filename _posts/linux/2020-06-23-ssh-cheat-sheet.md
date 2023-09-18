@@ -46,7 +46,7 @@ scp -p -r $__USER__@$__HOST__:$__SRC__ $__TARGET__
 scp -i ~/.ssh/superkey -p 87 $__USER__@$__HOST__:$__SRC__ $__TARGET__
 ```
 
-- Forward connections to $HOSTNAME:8080 out to $HOST:80
+- Forward connections to $HOSTNAME:8080 out to $HOST:80 (tunneling[^1])
 
 ```bash
 ssh -g -L 8080:$hostname:80 root@$__HOST__
@@ -64,7 +64,8 @@ chmod 700 ~/.ssh
 chmod 600 ~/.ssh/authorized_keys
 ```
 
-## Problem: SSH is slow! ##
+## Problem: SSH is slow!
+
 - 1. Add this to `/etc/ssh/sshd_config`
 
 ```bash
@@ -76,3 +77,5 @@ UseDNS no
 ```bash
 GSSAPIAuthentication no
 ```
+
+[^1]: SSH Tunneling Made Easy https://www.revsys.com/writings/quicktips/ssh-tunnel.html.
