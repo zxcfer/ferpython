@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "PHP PDO and Fluent PDO usage"
+title: "PHP - PDO and Fluent PDO usage"
 tags: ["php", "pdo", "orm"]
 ---
 

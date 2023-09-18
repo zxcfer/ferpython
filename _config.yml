@@ -2,7 +2,7 @@ title: Fer Python
 author: Fernando Vásquez Choquehuanca
 email: zxcfer@proton.me
 description: > # this means to ignore newlines until "show_exerpts:"
-  Fernando Vásquez is a electronics engineer and indie game developer currently based in Perú. He occasionally blogs about programming.
+  Fernando Vásquez is an electronics engineer and software developer currently based in the world. He occasionally blogs about Python and Android programming.
 show_excerpts: false # set to true to show excerpts on the homepage
 
 permalink: /:title
