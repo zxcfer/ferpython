@@ -18,5 +18,4 @@ arr = np.linspace(0, 1, 10000)
 %timeit vf(arr, arr) # 450ms
 ```
 
-
 https://stackoverflow.com/questions/35215161/most-efficient-way-to-map-function-over-numpy-array
