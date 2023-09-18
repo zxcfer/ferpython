@@ -28,8 +28,8 @@ dash:
   # generate social links in footer
   # supported colors: green, red, orange, blue, cyan, pink, teal, yellow, indigo, purple
   social_links:
-    - url: https://twitter.com/vasquefe
-      icon: twitter-square
+    - url: https://www.instagram.com/zxcfer1/
+      icon: instagram-square
       color: cyan
     - url: https://github.com/zxcfer
       icon: github-square
