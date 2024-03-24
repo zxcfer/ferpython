@@ -1,4 +1,3 @@
-
 # Snowflake tutorial
 
 ```bash
