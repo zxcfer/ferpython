@@ -93,6 +93,33 @@ can't work with it
 
 ## Defer, panic, and recover
 
-Defer puts your function call into a stack. Each deferred function is executed in reverse order when the host function finishes, regardless of whether a panic is called or not. 
+In Go, the panic and recover functions are used for handling unexpected errors and recovering from them. The panic function is used to raise an error condition, and the recover function is used to catch and handle the panic.
+
+Here's an example that demonstrates the use of panic and recover in Go:
+
+
+```go
+package main
+
+import (
+    "fmt"
+)
+
+func recoverPanic() {
+    if r := recover(); r != nil {
+        fmt.Println("Recovered from panic:", r)
+    }
+}
+
+func main() {
+    defer recoverPanic()
+
+    panic("Oops! Something went wrong.")
+}
+```
+
+In this example, the `recoverPanic` function is used to recover from a panic that occurs in the `main` function. The `defer` keyword is used to ensure that `recoverPanic` is called when a panic occurs. The `recover` function is used to recover from the panic and handle it gracefully.
+
+> Defer puts your function call into a stack. Each deferred function is executed in reverse order when the host function finishes, regardless of whether a panic is called or not. 
 
 https://blog.logrocket.com/error-handling-golang-best-practices/
