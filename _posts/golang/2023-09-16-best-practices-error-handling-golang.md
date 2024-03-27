@@ -97,7 +97,6 @@ In Go, the panic and recover functions are used for handling unexpected errors a
 
 Here's an example that demonstrates the use of panic and recover in Go:
 
-
 ```go
 package main
 
