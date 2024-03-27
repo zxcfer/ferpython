@@ -16,7 +16,7 @@ for num in numbers.iter() {
 }
 ```
 
-2. **`iter()` and `iter_mut()`**:
+1. **`iter()` and `iter_mut()`**:
 These methods are used to create an iterator over the elements of a collection. `iter()` returns an immutable iterator, while `iter_mut()` returns a mutable iterator.
 
 ```rust
@@ -26,7 +26,7 @@ for num in numbers.iter_mut() {
 }
 ```
 
-3. **`into_iter()`**:
+1. **`into_iter()`**:
 This method consumes the collection and returns an iterator that owns the elements. It is useful when you want to iterate over a collection and potentially modify or consume its elements.
 
 ```rust
@@ -37,7 +37,7 @@ for num in numbers.into_iter() {
 // `numbers` is no longer available here
 ```
 
-4. **`enumerate()`**:
+1. **`enumerate()`**:
 This method returns an iterator that yields tuples containing the index and the value of each element in the collection.
 
 ```rust
@@ -47,7 +47,7 @@ for (index, num) in numbers.iter().enumerate() {
 }
 ```
 
-5. **`zip()`**:
+1. **`zip()`**:
 This method is used to iterate over two iterators simultaneously, yielding pairs of elements from each iterator.
 
 ```rust
@@ -58,7 +58,7 @@ for (num1, num2) in numbers1.iter().zip(numbers2.iter()) {
 }
 ```
 
-6. **Range expressions**:
+1. **Range expressions**:
 Rust provides a concise way to iterate over a range of values using range expressions (`start..end` or `start..=end`).
 
 ```rust
@@ -67,7 +67,7 @@ for i in 0..5 {
 }
 ```
 
-7. **`while` loop**:
+1. **`while` loop**:
 While not strictly an iteration method, `while` loops can be used to iterate over iterators manually.
 
 ```rust
