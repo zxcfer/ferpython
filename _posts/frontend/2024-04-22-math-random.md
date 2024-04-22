@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Don't Use Math.random() for Random Numbers in Javasript!"
+title: "Don't Use Math.random() to Generate Random Numbers!"
 tags: ["javascript", "typescript", "random", "crypto"]
 ---
 
