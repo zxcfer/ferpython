@@ -41,4 +41,4 @@ In conclusion, while Math.random() might seem convenient, it's not the best choi
 
 Remember, true randomness is crucial in many areas, so it's worth taking the time to do it right!
 
-[^1]: (https://security.stackexchange.com/questions/181580/why-is-math-random-not-designed-to-be-cryptographically-secure)[Why is Math.random() not designed to be cryptographically secure?].
+[^1]: [Why is Math.random() not designed to be cryptographically secure?](https://security.stackexchange.com/questions/181580/why-is-math-random-not-designed-to-be-cryptographically-secure).
