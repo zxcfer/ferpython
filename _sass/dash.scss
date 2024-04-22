@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 
-$base-font-family: 'Varela Round', sans-serif;
+$base-font-family: 'Trebuchet MS', sans-serif;
 $syntax-font-family: 'Roboto Mono', monospace;
 $base-font-size:   16px !default;
 $post-link-font-size: $base-font-size * 1.25 !default;
@@ -11,10 +11,10 @@ $base-line-height: 1.5 !default;
 $syntax-line-height: 1.3 !default;
 
 // Width of the content area
-$content-width:    800px !default;
+$content-width:    960px !default;
 
 $on-palm:          600px !default;
-$on-laptop:        800px !default;
+$on-laptop:        960px !default;
 
 $on-medium:        $on-palm !default;
 $on-large: $on-laptop !default;
