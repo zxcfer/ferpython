@@ -15,11 +15,6 @@ Typescript has basically 5 categories of types.
 ## Primitive types
 
 ```ts
-// symbol
-// symbol values are created by calling the Symbol constructor.
-let sym1 = Symbol();
-let sym2 = Symbol("key"); // optional string key
-
 // número
 let num: number = 10;
 
@@ -30,8 +25,14 @@ let str: string = 'hello';
 let isLogin: boolean = false;
 
 // bigint
-const x = 10n;        // created by appending n to the end of an integer literal
-const y = BigInt(10); // or by calling the BigInt()
+const y = BigInt(10);
+
+// appending n to the end of an integer literal
+const x = 10n;
+
+// symbol values are created by calling the Symbol constructor.
+let sym1 = Symbol();
+let sym2 = Symbol("key"); // optional string key
 
 // undefined
 // null: discouraged
