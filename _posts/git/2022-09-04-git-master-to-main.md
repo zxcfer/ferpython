@@ -13,21 +13,23 @@ In order to replace your `master` branch and start using `main` instead. I found
 	```
 
 2. Push the new local main branch to the remote repo
-```bash
-git push -u origin main
-```
+
+	```bash
+	git push -u origin main
+	```
+	
 3. Switch the current HEAD to the main branch
 
-```bash
-git symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/main
-```
+	```bash
+	git symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/main
+	```
 
 4. Change the default branch on Github/Gitlab to main
 
 5. Delete the master branch on the remote
 
-```bash
-git push origin --delete master
-```
+	```bash
+	git push origin --delete master
+	```
 
 > Why should I change master to main? [Wikipedia Article](https://en.wikipedia.org/wiki/Master/slave_(technology))
