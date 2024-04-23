@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Map like function with NumPy"
+title: "Map like function with NumPy and Pandas"
 tags: ["python", "numpy"]
 ---
 
