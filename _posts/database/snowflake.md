@@ -39,7 +39,6 @@ PUT file://D:\data\getting-started-snowflake\employees0*.csv @<namespace>.%<tabl
 LIST @sf_tuts.public.%emp_basic;
 ```
 
-
 * Copy into Target
 
 ```sql
