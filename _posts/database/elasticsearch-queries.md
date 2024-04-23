@@ -12,13 +12,9 @@ you should enamble X-Pack in `config/elasticsearch.yml`
 
 ```
 xpack.security.enabled: true
-
-
 ```
 
-
 # Cofniguration
-
 
 `elasticsearch.yml` set the cluster name `cluster.name`
 

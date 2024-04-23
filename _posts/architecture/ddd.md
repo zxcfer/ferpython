@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "DDD for ADHD people"
-tags: ["DDD", "architecture"]
+title: "Clean Architecture"
+tags: [architecture"]
 ---
 
 This is a short explanation of DDD pattern, ideally for ADHD.
@@ -12,7 +12,7 @@ Dependency Rule and implementing a layered architecture to create systems that a
 
 ## Architectural Concepts
 
-Hexagonal Architecture, Onion Architecture, Screaming Architecture, DCI, and BCE are discussed as different architectural approaches for system design. These architectures aim to achieve separation of concerns and consist of layers for business rules and interfaces.
+Hexagonal Architecture, Onion Architecture and Screaming Architecture are discussed as different architectural approaches for system design. These architectures aim to achieve separation of concerns and consist of layers for business rules and interfaces.
 
 ## Common Characteristics
 
@@ -53,6 +53,18 @@ Those form the outermost layer and contain implementation details such as web fr
 
 - Data crossing layer boundaries should be simple and isolated, avoiding dependencies that violate the Dependency Rule.
 - Passing simple data structures ensures flexibility and maintainability of the system.
+
+## File structure
+
+```
+|-- src
+    |-- <Module> 
+        |-- Application
+        |-- Domain
+        |-- Infrastructure
+        |-- Ports
+        |-- Tests
+```
 
 ## Conclusion
 
