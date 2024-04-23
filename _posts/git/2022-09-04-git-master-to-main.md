@@ -8,9 +8,9 @@ In order to replace your `master` branch and start using `main` instead. I found
 
 1. Create the `main` branch locally, taking the history from master
 
-```bash
-git branch -m master main
-```
+	```bash
+	git branch -m master main
+	```
 
 2. Push the new local main branch to the remote repo
 
