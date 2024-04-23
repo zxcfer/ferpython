@@ -13,11 +13,9 @@ In order to replace your `master` branch and start using `main` instead. I found
 	```
 
 2. Push the new local main branch to the remote repo
-
 ```bash
 git push -u origin main
 ```
-
 3. Switch the current HEAD to the main branch
 
 ```bash
