@@ -70,12 +70,13 @@ func main() {
 - The `sync.WaitGroup` struct in the sync package is used to wait for a group of goroutines to finish executing, and control is blocked until the group of goroutines finishes executing.
 - Each `sync.WaitGroup` value maintains an internal count, which initially defaults to zero.
 
-For an addressable sync.WaitGroup value wg:
+![WaitGroup](https://i.imgur.com/TDv8kFK.png)
 
-wg.Add(delta) to change the value of the count maintained by wg, wg.Done() and wg.Add(-1) are exactly equivalent
-If a wg.Add(delta) or wg.Done() call changes the count maintained by wg to a negative number, a panic will be generated
-When wg.Wait() is called by a goroutine if the count maintained by wg is zero, the wg.Wait() operation is a null operation; otherwise (the count is a positive integer), the goroutine will go into a blocking state, and when some other goroutine later changes the count to zero (typically by calling wg.Done()), the concurrent process will re-enter the running state (i.e. wg.Wait() will return)
-For an example, see the sync/atomic example above. The main goroutine will go into a blocking state to wait for 1000 to complete, after which the main goroutine will unblock.
+For an addressable `sync.WaitGroup` value wg:
+
+- wg.Add(delta) to change the value of the count maintained by wg, wg.Done() and wg.Add(-1) are exactly equivalent
+- If a wg.Add(delta) or wg.Done() call changes the count maintained by wg to a negative number, a panic will be generated
+- When wg.Wait() is called by a goroutine if the count maintained by wg is zero, the wg.Wait() operation is a null operation; otherwise (the count is a positive integer), the goroutine will go into a blocking state, and when some other goroutine later changes the count to zero (typically by calling wg.Done()), the concurrent process will re-enter the running state (i.e. wg.Wait() will return)
 
 ## sync.Mutex
 

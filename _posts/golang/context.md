@@ -5,6 +5,8 @@ tags: ["go"]
 ---
 
 https://code.tutsplus.com/es/context-based-programming-in-go--cms-29290t
+https://articles.wesionary.team/understanding-context-package-in-golang-ed62f14edf6a
+
 
 * Go programs that run multiple simultaneous calculations in goroutines need to manage their durability.
 * Runaway goroutines can enter infinite loops, block other waiting goroutines, or simply take too long.
@@ -67,10 +69,110 @@ Como recordarás, WithDeadline() y WithTimeout() devuelven contextos que se canc
 
 Examinemos un ejemplo. Primero, aquí está la función contextDemo() con un nombre y un contexto. Se ejecuta en un bucle infinito, imprimiendo a la consola su nombre y el plazo de su contexto si lo hay. Luego, solo se suspende por un segundo.
 
+```go
+package main 
+import (
+    "fmt"
+    "context"
+    "time"
+)
+
+func contextDemo(name string, ctx context.Context) {    
+    for {
+        if ok {
+            fmt.Println(name, "will expire at:", deadline)
+        } else {
+            fmt.Println(name, "has no deadline")
+        }
+        time.Sleep(time.Second)
+    }
+}
+
+func main() {
+    timeout := 3 * time.Second
+    deadline := time.Now().Add(4 * time.Hour)
+
+    timeOutContext, _ := context.WithTimeout(
+        context.Background(), timeout)
+    
+    cancelContext, cancelFunc := context.WithCancel(
+        context.Background())
+    
+    deadlineContext, _    := context.WithDeadline(
+        cancelContext, deadline)
+    
+    go contextDemo("[timeoutContext]", timeOutContext)
+    go contextDemo("[cancelContext]", cancelContext)
+    go contextDemo("[deadlineContext]", deadlineContext)
+    
+    // Wait for the timeout to expire
+    <- timeOutContext.Done()
+    
+    // This will cancel the deadline context as well as its
+    // child - the cancelContext
+    fmt.Println("Cancelling the cancel context...")
+    cancelFunc()
+    <- cancelContext.Done()
+    
+    fmt.Println("The cancel context has been cancelled...")
+    
+    // Wait for both contexts to be cancelled
+    <- deadlineContext.Done()
+    fmt.Println("The deadline context has been cancelled...")
+}
+
+```
+
+```
+[cancelContext] has no deadline
+[deadlineContext] will expire at: 2017-07-29 09:06:02.34260363
+[timeoutContext] will expire at: 2017-07-29 05:06:05.342603759
+[cancelContext] has no deadline
+[timeoutContext] will expire at: 2017-07-29 05:06:05.342603759
+[deadlineContext] will expire at: 2017-07-29 09:06:02.34260363
+[cancelContext] has no deadline
+[timeoutContext] will expire at: 2017-07-29 05:06:05.342603759
+[deadlineContext] will expire at: 2017-07-29 09:06:02.34260363
+Cancelling the cancel context...
+The cancel context has been cancelled...
+The deadline context has been cancelled...
+```
+
+## value
+
+- Puedes adjuntar valores a un contexto utilizando la función WithValue().
+- Observa que se devuelve el contexto original, no un contexto derivado.
+
+```go
+func contextDemo(ctx context.Context) {
+    deadline, ok := ctx.Deadline()
+    name := ctx.Value("name")
+    for {
+        if ok {
+            fmt.Println(name, "will expire at:", deadline)
+        } else {
+            fmt.Println(name, "has no deadline")
+        }
+        time.Sleep(time.Second)
+    }
+}
+```
+
+Y modifiquemos la función principal para adjuntar el nombre mediante WithValue():
+
+```go
+go contextDemo(context.WithValue(
+    timeOutContext, "name", "[timeoutContext]"))
+go contextDemo(context.WithValue(
+    cancelContext, "name", "[cancelContext]"))
+go contextDemo(context.WithValue(
+    deadlineContext, "name", "[deadlineContext]"))
+```
+
+El resultado sigue siendo el mismo. Revisa la sección de las mejores prácticas para obtener algunas pautas sobre el uso adecuado de los valores de contexto.
 
 ## There are also some notes about context:
 
 Do not store Contexts in struct types, but pass the Context explicitly to each function that needs it, and the Context should be the first argument.
 Do not pass a nil Context, even if the function allows it, or if you are not sure which Context to use, pass context.
 Do not pass variables that could be passed as function arguments to the Value of the Context.
-
