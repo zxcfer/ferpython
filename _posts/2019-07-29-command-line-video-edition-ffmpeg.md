@@ -28,8 +28,14 @@ ffmpeg -f image2 -i image%d.jpg video.mpg
 convert 'images.gif[0]' image.png
 ```
 
-# remove audio
+## Remove audio
 
 ```bash
 ffmpeg -i %in% -vcodec copy -an %out% 
+```
+
+## Join video and audio
+
+```bash
+ffmpeg -i video.mp4 -i audio.m4a -c:v copy -c:a aac output.mp4
 ```

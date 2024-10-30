@@ -26,3 +26,5 @@ Then clone as usually, but using the host you defined in the previous file:
 ```bash
 git clone search3:iwxfer/search3.git
 ````
+
+* ref: https://superuser.com/questions/232373/how-to-tell-git-which-private-key-to-use
